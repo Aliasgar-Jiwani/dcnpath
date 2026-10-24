@@ -1,0 +1,45 @@
+.ring {
+  transform: rotate(-90deg);
+}
+
+.ringBg {
+  fill: none;
+  stroke: var(--color-bg-tertiary);
+}
+
+.ringProgress {
+  fill: none;
+  stroke-linecap: round;
+  transition: stroke-dashoffset var(--duration-slow) var(--ease-out);
+}
+
+.ringLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+}
+
+.ringContainer {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ─── Linear bar ─── */
+.barContainer {
+  width: 100%;
+  height: 6px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  border-radius: var(--radius-full);
+  transition: width var(--duration-slow) var(--ease-out);
+}

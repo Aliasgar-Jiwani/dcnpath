@@ -1,0 +1,160 @@
+/* ─── Design Tokens ─── */
+:root {
+  /* ── Typography ── */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --fs-xs: 0.75rem;    /* 12px */
+  --fs-sm: 0.875rem;   /* 14px */
+  --fs-base: 1rem;     /* 16px */
+  --fs-md: 1.125rem;   /* 18px */
+  --fs-lg: 1.25rem;    /* 20px */
+  --fs-xl: 1.5rem;     /* 24px */
+  --fs-2xl: 1.875rem;  /* 30px */
+  --fs-3xl: 2.25rem;   /* 36px */
+  --fs-4xl: 3rem;      /* 48px */
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+  --fw-extrabold: 800;
+
+  --lh-tight: 1.2;
+  --lh-normal: 1.6;
+  --lh-relaxed: 1.8;
+
+  /* ── Spacing ── */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+
+  /* ── Border Radius ── */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* ── Shadows ── */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* ── Transitions ── */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  /* ── Layout ── */
+  --sidebar-width: 280px;
+  --header-height: 64px;
+  --max-content-width: 1440px;
+}
+
+/* ─── Light Theme (default) ─── */
+[data-theme="light"] {
+  --color-bg-primary: #f8f9fc;
+  --color-bg-secondary: #ffffff;
+  --color-bg-tertiary: #f0f2f8;
+  --color-bg-elevated: #ffffff;
+  --color-bg-hover: #ebedf5;
+  --color-bg-active: #e1e4ef;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94a3b8;
+  --color-text-inverse: #ffffff;
+
+  --color-border: #e2e5f0;
+  --color-border-strong: #c7cce0;
+
+  /* Accent: vibrant indigo-violet gradient palette */
+  --color-accent-50: #eef2ff;
+  --color-accent-100: #e0e7ff;
+  --color-accent-200: #c7d2fe;
+  --color-accent-300: #a5b4fc;
+  --color-accent-400: #818cf8;
+  --color-accent-500: #6366f1;
+  --color-accent-600: #4f46e5;
+  --color-accent-700: #4338ca;
+
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+
+  /* Unit colors */
+  --color-unit-1: #6366f1;
+  --color-unit-2: #8b5cf6;
+  --color-unit-3: #06b6d4;
+  --color-unit-4: #f59e0b;
+  --color-unit-5: #ef4444;
+
+  /* Glassmorphism */
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-blur: blur(12px);
+
+  --shadow-glow: 0 0 20px rgba(99, 102, 241, 0.15);
+  --shadow-card: 0 1px 3px rgba(15, 23, 42, 0.04), 0 6px 16px rgba(15, 23, 42, 0.06);
+}
+
+/* ─── Dark Theme ─── */
+[data-theme="dark"] {
+  --color-bg-primary: #0b0f1a;
+  --color-bg-secondary: #111827;
+  --color-bg-tertiary: #1a2035;
+  --color-bg-elevated: #1e293b;
+  --color-bg-hover: #253049;
+  --color-bg-active: #2d3a5c;
+
+  --color-text-primary: #f1f5f9;
+  --color-text-secondary: #94a3b8;
+  --color-text-tertiary: #64748b;
+  --color-text-inverse: #0f172a;
+
+  --color-border: #1e293b;
+  --color-border-strong: #334155;
+
+  --color-accent-50: #1e1b4b;
+  --color-accent-100: #312e81;
+  --color-accent-200: #3730a3;
+  --color-accent-300: #4f46e5;
+  --color-accent-400: #6366f1;
+  --color-accent-500: #818cf8;
+  --color-accent-600: #a5b4fc;
+  --color-accent-700: #c7d2fe;
+
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  --color-unit-1: #818cf8;
+  --color-unit-2: #a78bfa;
+  --color-unit-3: #22d3ee;
+  --color-unit-4: #fbbf24;
+  --color-unit-5: #f87171;
+
+  --glass-bg: rgba(17, 24, 39, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: blur(12px);
+
+  --shadow-glow: 0 0 30px rgba(99, 102, 241, 0.2);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.2), 0 8px 24px rgba(0, 0, 0, 0.3);
+}

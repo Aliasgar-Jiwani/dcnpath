@@ -1,0 +1,276 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+/* ─── Mode Toggle Bar ─── */
+.modeToggleBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--sp-1);
+  width: 100%;
+}
+
+.modeTabs {
+  display: flex;
+  background: var(--color-bg-secondary);
+  padding: 4px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.modeTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.modeTab {
+  padding: var(--sp-2) var(--sp-5);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.modeTab:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-hover);
+}
+
+.activeModeTab {
+  background: linear-gradient(135deg, var(--color-accent-500), var(--color-accent-400));
+  color: white;
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-accent-500) 40%, transparent);
+}
+
+.activeModeTab:hover {
+  background: linear-gradient(135deg, var(--color-accent-600), var(--color-accent-500));
+  color: white;
+}
+
+/* ─── Dashboard Layout ─── */
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+/* Side-by-side only on very large screens */
+@media (min-width: 1400px) {
+  .dashboardGrid {
+    grid-template-columns: 1.4fr 1fr;
+  }
+}
+
+/* ─── Control Cards ─── */
+.controlCard {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  transition: border-color var(--duration-fast) var(--ease-out),
+              box-shadow var(--duration-fast) var(--ease-out);
+  box-sizing: border-box;
+}
+
+.controlCard:hover {
+  border-color: color-mix(in srgb, var(--color-accent-500) 30%, var(--color-border));
+}
+
+.controlLabel {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sliderInput {
+  accent-color: var(--color-accent-500);
+  cursor: pointer;
+  height: 8px;
+  width: 100%;
+}
+
+/* ─── View Cards (Waveform / Constellation) ─── */
+.viewCard {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-card);
+  transition: box-shadow var(--duration-normal) var(--ease-out),
+              transform var(--duration-normal) var(--ease-out);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.viewCard:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+.viewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+  padding-bottom: var(--sp-2);
+  border-bottom: 1px solid var(--color-border);
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.viewTitle {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.viewTitle::before {
+  content: '';
+  width: 4px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(180deg, var(--color-accent-500), var(--color-unit-2));
+  flex-shrink: 0;
+}
+
+/* ─── SVG Container ─── */
+.svgContainer {
+  background: var(--color-bg-primary);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-2);
+  border: 1px solid var(--color-border);
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* ─── Symbol Mapping Table ─── */
+.tableWrapper {
+  margin-top: var(--sp-3);
+  max-height: 180px;
+  overflow-y: auto;
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mappingTable {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: var(--fs-xs);
+  font-family: var(--font-mono);
+  text-align: center;
+}
+
+.mappingTable th {
+  background: var(--color-bg-tertiary);
+  padding: var(--sp-2) var(--sp-2);
+  border-bottom: 2px solid var(--color-border);
+  color: var(--color-text-primary);
+  font-weight: var(--fw-bold);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mappingTable td {
+  padding: var(--sp-1) var(--sp-2);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  transition: background var(--duration-fast) var(--ease-out);
+}
+
+.mappingTable tbody tr:hover td {
+  background: var(--color-bg-hover);
+}
+
+/* ─── Analog Specs Panel ─── */
+.specPanel {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-relaxed);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.specHighlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-1);
+  padding: var(--sp-1) var(--sp-3);
+  background: color-mix(in srgb, var(--color-accent-500) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-accent-500) 25%, transparent);
+  border-radius: var(--radius-md);
+  font-family: var(--font-mono);
+  font-weight: var(--fw-bold);
+  color: var(--color-accent-500);
+  font-size: var(--fs-sm);
+  max-width: 100%;
+  word-break: break-all;
+}
+
+.specNote {
+  margin-top: var(--sp-3);
+  padding: var(--sp-3);
+  background: color-mix(in srgb, var(--color-info) 8%, transparent);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--lh-relaxed);
+  border-left: 3px solid var(--color-info);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .modeTab {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .viewCard {
+    padding: var(--sp-3);
+    border-radius: var(--radius-lg);
+  }
+
+  .specPanel {
+    padding: var(--sp-3);
+    font-size: var(--fs-xs);
+  }
+}

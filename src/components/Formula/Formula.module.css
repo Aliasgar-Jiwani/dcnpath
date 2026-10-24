@@ -1,0 +1,48 @@
+.formula {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-3);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--sp-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--color-accent-500);
+  font-weight: var(--fw-medium);
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+.formula code {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .formula {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: 11px;
+    gap: var(--sp-2);
+  }
+}
+
+.formulaIcon {
+  color: var(--color-text-tertiary);
+  flex-shrink: 0;
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+}
