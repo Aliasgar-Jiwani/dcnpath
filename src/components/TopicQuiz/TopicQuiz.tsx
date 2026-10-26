@@ -38,12 +38,20 @@ export function TopicQuiz({
       <div className={styles.quizContainer}>
         <div className={styles.quizHeader}>
           <div className={styles.headerLeft}>
-            <h3 className={styles.quizTitle}>🧠 Topic Mastery Quiz</h3>
+            <div className={styles.titleRow}>
+              <span className={styles.quizHeaderIcon}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2a9 9 0 0 1 9 9c0 3.6-2.4 6.7-6 8.2V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8C5.4 17.7 3 14.6 3 11a9 9 0 0 1 9-9z" />
+                  <path d="M9 22h6" />
+                </svg>
+              </span>
+              <h3 className={styles.quizTitle}>Topic Knowledge Check</h3>
+            </div>
             <span className={styles.quizSub}>Testing learning objectives for this topic</span>
           </div>
         </div>
         <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--fs-sm)', margin: 0 }}>
-          Interactive questions for this section are being updated. Check back shortly!
+          Interactive practice questions for this section are being updated. Check back shortly!
         </p>
       </div>
     );
@@ -108,7 +116,12 @@ export function TopicQuiz({
       <header className={styles.quizHeader}>
         <div className={styles.headerLeft}>
           <div className={styles.titleRow}>
-            <span style={{ fontSize: '1.25rem' }}>🧠</span>
+            <span className={styles.quizHeaderIcon}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2a9 9 0 0 1 9 9c0 3.6-2.4 6.7-6 8.2V21a1 1 0 0 1-1 1h-4a1 1 0 0 1-1-1v-1.8C5.4 17.7 3 14.6 3 11a9 9 0 0 1 9-9z" />
+                <path d="M9 22h6" />
+              </svg>
+            </span>
             <h3 className={styles.quizTitle}>
               Topic Mastery Quiz: {topicTitle || 'Knowledge Check'}
             </h3>
@@ -127,7 +140,10 @@ export function TopicQuiz({
           </span>
           {existingScore && (
             <span className={`${styles.badge} ${styles.masteredBadge}`} title="Your saved quiz record">
-              {existingScore.passed ? '✓ Mastered' : 'Attempted'} ({existingScore.score}/{existingScore.total})
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+              {existingScore.passed ? 'Mastered' : 'Attempted'} ({existingScore.score}/{existingScore.total})
             </span>
           )}
         </div>
@@ -145,13 +161,17 @@ export function TopicQuiz({
 
           <p className={styles.resultsDesc}>
             {mastery.isMastered
-              ? `Excellent work! You answered ${score} out of ${questions.length} questions correctly (${mastery.percentage}%). You have demonstrated solid comprehension of this topic.`
-              : `You scored ${score} out of ${questions.length} (${mastery.percentage}%). Review the key formulas and textbook takeaways above, then retake the quiz to achieve complete mastery.`}
+              ? `Great job! You answered ${score} of ${questions.length} questions correctly (${mastery.percentage}%). You have demonstrated solid comprehension of this topic.`
+              : `You scored ${score} of ${questions.length} (${mastery.percentage}%). Review the key formulas and takeaways above, then retake the quiz to complete mastery.`}
           </p>
 
           {mastery.isMastered && (
             <div className={styles.completionBadge}>
-              <span>✓ Topic Marked Complete in Syllabus Tracker</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <span>Topic Marked Complete in Syllabus Tracker</span>
             </div>
           )}
 
@@ -161,14 +181,32 @@ export function TopicQuiz({
               className={styles.primaryBtn}
               onClick={handleRetake}
             >
-              <span>🔄 Retake Quiz</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                <path d="M3 3v5h5" />
+              </svg>
+              <span>Retake Quiz</span>
             </button>
             <button
               type="button"
               className={styles.secondaryBtn}
               onClick={() => setShowReview((v) => !v)}
             >
-              <span>{showReview ? 'Hide Explanations ▲' : 'Review All Questions & Explanations ▼'}</span>
+              <span>{showReview ? 'Hide Explanations' : 'Review Questions & Explanations'}</span>
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                style={{ transform: showReview ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
+                aria-hidden="true"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
             </button>
           </div>
 
@@ -186,9 +224,27 @@ export function TopicQuiz({
                         style={{
                           fontWeight: 'bold',
                           color: isCorrect ? 'var(--color-success)' : 'var(--color-error)',
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: 4,
                         }}
                       >
-                        {isCorrect ? '✓ Correct' : '✗ Incorrect'}
+                        {isCorrect ? (
+                          <>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            Correct
+                          </>
+                        ) : (
+                          <>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <line x1="18" y1="6" x2="6" y2="18" />
+                              <line x1="6" y1="6" x2="18" y2="18" />
+                            </svg>
+                            Incorrect
+                          </>
+                        )}
                       </span>
                     </div>
                     <p className={styles.reviewStem}>{q.stem}</p>
@@ -203,7 +259,14 @@ export function TopicQuiz({
                       )}
                     </div>
                     <div className={styles.explanationBox} style={{ marginTop: 'var(--sp-2)' }}>
-                      <div className={styles.explanationHeader}>💡 Explanation</div>
+                      <div className={styles.explanationHeader}>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="12" y1="16" x2="12" y2="12" />
+                          <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                        <span>Explanation</span>
+                      </div>
                       <p className={styles.explanationText}>{q.explanation}</p>
                     </div>
                   </div>
@@ -245,7 +308,7 @@ export function TopicQuiz({
               {currentQ.bloomLevel}
             </span>
             <span className={`${styles.badge} ${styles.difficultyBadge}`}>
-              {currentQ.difficulty === 1 ? '● Easy' : currentQ.difficulty === 2 ? '●● Medium' : '●●● Challenging'}
+              {currentQ.difficulty === 1 ? 'Easy' : currentQ.difficulty === 2 ? 'Medium' : 'Challenging'}
             </span>
           </div>
 
@@ -286,12 +349,19 @@ export function TopicQuiz({
 
                   {hasSelected && isCorrectOpt && (
                     <span className={`${styles.feedbackIcon} ${styles.feedbackIconCorrect}`}>
-                      ✓ Correct
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Correct
                     </span>
                   )}
                   {hasSelected && isSelected && !isCorrectOpt && (
                     <span className={`${styles.feedbackIcon} ${styles.feedbackIconIncorrect}`}>
-                      ✗ Incorrect
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                      Incorrect
                     </span>
                   )}
                 </button>
@@ -303,7 +373,12 @@ export function TopicQuiz({
           {hasSelected && (
             <div className={styles.explanationBox}>
               <div className={styles.explanationHeader}>
-                <span>💡 Concept Breakdown &amp; Explanation</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+                <span>Concept Breakdown &amp; Explanation</span>
               </div>
               <p className={styles.explanationText}>{currentQ.explanation}</p>
             </div>
@@ -318,7 +393,10 @@ export function TopicQuiz({
               disabled={currentIdx === 0}
               style={{ visibility: currentIdx > 0 ? 'visible' : 'hidden' }}
             >
-              <span>← Previous</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              <span>Previous</span>
             </button>
 
             {hasSelected && (
@@ -329,9 +407,12 @@ export function TopicQuiz({
               >
                 <span>
                   {currentIdx < questions.length - 1
-                    ? 'Next Question →'
-                    : 'Complete Quiz & View Results 🏆'}
+                    ? 'Next Question'
+                    : 'Complete Quiz & View Results'}
                 </span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
               </button>
             )}
           </footer>

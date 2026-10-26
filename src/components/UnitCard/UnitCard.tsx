@@ -32,15 +32,8 @@ export function UnitCard({ unit }: UnitCardProps) {
       style={{ '--card-color': color } as React.CSSProperties}
     >
       <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: 4,
-          background: color,
-          borderRadius: 'var(--radius-xl) var(--radius-xl) 0 0',
-        }}
+        className={styles.accentBar}
+        style={{ background: color }}
       />
 
       <div className={styles.cardHeader}>
@@ -62,17 +55,21 @@ export function UnitCard({ unit }: UnitCardProps) {
       <div className={styles.cardObjectives}>
         {unit.objectives.slice(0, 3).map((obj, i) => (
           <div key={i} className={styles.objective}>
-            {obj}
+            <span className={styles.objectiveBullet}>•</span>
+            <span>{obj}</span>
           </div>
         ))}
       </div>
 
       <div className={styles.cardFooter}>
         <span className={styles.topicCount}>
-          {completedTopics}/{totalTopics} topics
+          {completedTopics}/{totalTopics} topics completed
         </span>
         <span className={styles.continueBtn} style={{ background: color }}>
-          {completedTopics > 0 ? 'Continue' : 'Start'} →
+          <span>{completedTopics > 0 ? 'Continue' : 'Start Unit'}</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </span>
       </div>
     </Link>

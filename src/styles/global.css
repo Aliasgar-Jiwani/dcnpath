@@ -35,11 +35,12 @@ body {
   overflow-x: hidden;
 }
 
-/* ─── Typography ─── */
+/* Typography */
 h1, h2, h3, h4, h5, h6 {
   font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
   color: var(--color-text-primary);
+  letter-spacing: -0.01em;
 }
 
 h1 { font-size: var(--fs-3xl); }
@@ -79,17 +80,17 @@ pre code {
 
 strong { font-weight: var(--fw-semibold); }
 
-/* ─── Focus Styles (Accessibility) ─── */
+/* Focus Styles */
 :focus-visible {
   outline: 2px solid var(--color-accent-500);
   outline-offset: 2px;
   border-radius: var(--radius-sm);
 }
 
-/* ─── Scrollbar ─── */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -105,13 +106,13 @@ strong { font-weight: var(--fw-semibold); }
   background: var(--color-text-tertiary);
 }
 
-/* ─── Selection ─── */
+/* Selection */
 ::selection {
   background: var(--color-accent-400);
   color: white;
 }
 
-/* ─── Utility ─── */
+/* Utility */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -124,7 +125,7 @@ strong { font-weight: var(--fw-semibold); }
   border-width: 0;
 }
 
-/* ─── Teacher Mode ─── */
+/* Teacher Mode */
 [data-teacher="true"] {
   --fs-base: 1.125rem;
   --fs-md: 1.25rem;

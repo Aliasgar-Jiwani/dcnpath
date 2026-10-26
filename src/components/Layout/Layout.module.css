@@ -7,7 +7,7 @@
   overflow-x: hidden;
 }
 
-/* ─── Header ─── */
+/* Header */
 .header {
   position: sticky;
   top: 0;
@@ -24,7 +24,7 @@
   transition: background var(--duration-normal) var(--ease-out);
   width: 100%;
   box-sizing: border-box;
-  gap: var(--sp-3);
+  gap: var(--sp-4);
 }
 
 .headerLeft {
@@ -42,6 +42,7 @@
   color: var(--color-text-primary);
   text-decoration: none;
   user-select: none;
+  letter-spacing: -0.02em;
 }
 
 .logoIcon {
@@ -56,14 +57,14 @@
   font-weight: var(--fw-extrabold);
   font-size: var(--fs-sm);
   flex-shrink: 0;
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-accent-500) 40%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-accent-500) 30%, transparent);
 }
 
 .logoText {
   letter-spacing: -0.02em;
 }
 
-/* ─── Top Navigation Bar ─── */
+/* Top Navigation */
 .headerNav {
   display: flex;
   align-items: center;
@@ -104,7 +105,7 @@
   background: var(--color-accent-500);
   color: white;
   border-color: var(--color-accent-500);
-  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-accent-500) 35%, transparent);
+  box-shadow: 0 2px 8px color-mix(in srgb, var(--color-accent-500) 30%, transparent);
 }
 
 .navLinkActive:hover {
@@ -118,11 +119,11 @@
   font-weight: var(--fw-bold);
   padding: 1px 5px;
   border-radius: var(--radius-sm);
-  background: color-mix(in srgb, var(--color-text-primary) 10%, transparent);
+  background: color-mix(in srgb, var(--color-text-primary) 8%, transparent);
 }
 
 .navLinkActive .navUnitBadge {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.2);
   color: white;
 }
 
@@ -149,11 +150,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: var(--radius-md);
   color: var(--color-text-secondary);
-  font-size: var(--fs-md);
   transition: background var(--duration-fast) var(--ease-out),
               color var(--duration-fast) var(--ease-out),
               transform var(--duration-fast) var(--ease-out);
@@ -169,7 +169,7 @@
   border-color: var(--color-border-strong);
 }
 
-/* ─── Main Content (Spacious Full Width) ─── */
+/* Main Content */
 .content {
   flex: 1;
   width: 100%;
@@ -180,7 +180,7 @@
   overflow-x: hidden;
 }
 
-/* ─── Responsive Adjustments ─── */
+/* Responsive */
 @media (max-width: 1024px) {
   .content {
     padding: var(--sp-5) var(--sp-5);
@@ -194,6 +194,7 @@
 @media (max-width: 768px) {
   .header {
     padding: 0 var(--sp-4);
+    gap: var(--sp-3);
   }
 
   .content {
@@ -222,7 +223,7 @@
   }
 
   .navLink {
-    padding: 4px 9px;
+    padding: 5px 10px;
     font-size: 11px;
     gap: 4px;
   }

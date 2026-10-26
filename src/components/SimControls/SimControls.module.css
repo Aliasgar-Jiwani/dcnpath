@@ -36,6 +36,13 @@
   gap: var(--sp-2);
 }
 
+.titleIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-accent-500);
+}
+
 .title {
   font-size: var(--fs-base);
   font-weight: var(--fw-bold);

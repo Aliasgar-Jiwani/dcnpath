@@ -11,13 +11,8 @@ interface ThemeContextValue {
 
 export const ThemeContext = createContext<ThemeContextValue | null>(null);
 
-function getSystemTheme(): Theme {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useLocalStorage<Theme>('dcnpath-theme', getSystemTheme());
+  const [theme, setTheme] = useLocalStorage<Theme>('dcnpath-theme', 'dark');
 
   // Apply theme to document
   useEffect(() => {

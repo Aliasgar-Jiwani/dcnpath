@@ -191,13 +191,19 @@ export function Modulation() {
             className={`${styles.modeTab} ${mode === 'digital' ? styles.activeModeTab : ''}`}
             onClick={() => setMode('digital')}
           >
-            ⚡ Digital Modulation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
+            <span>Digital Modulation</span>
           </button>
           <button
             className={`${styles.modeTab} ${mode === 'analog' ? styles.activeModeTab : ''}`}
             onClick={() => setMode('analog')}
           >
-            〰 Analog Modulation
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M2 12c3-6 6-6 9 0s6 6 9 0" />
+            </svg>
+            <span>Analog Modulation</span>
           </button>
         </div>
       </div>
@@ -504,7 +510,12 @@ export function Modulation() {
                 </div>
               )}
               <div className={styles.specNote}>
-                💡 FM requires much greater transmission bandwidth than AM, but provides superior resistance to amplitude noise and fading!
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" style={{ flexShrink: 0, marginTop: 2 }}>
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+                <span>FM requires greater transmission bandwidth than AM, but provides superior resistance to amplitude noise and fading.</span>
               </div>
             </div>
           )}

@@ -1,12 +1,14 @@
 .callout {
   display: flex;
+  align-items: flex-start;
   gap: var(--sp-3);
-  padding: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
   border-radius: var(--radius-lg);
-  border-left: 4px solid;
+  border-left: 3px solid;
   margin-bottom: var(--sp-4);
   font-size: var(--fs-sm);
-  line-height: var(--lh-normal);
+  line-height: var(--lh-relaxed);
+  background: var(--color-bg-secondary);
 }
 
 .callout p {
@@ -15,30 +17,52 @@
 
 .icon {
   flex-shrink: 0;
-  font-size: var(--fs-lg);
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.content {
+  flex: 1;
 }
 
 .info {
   background: var(--color-accent-50);
-  border-color: var(--color-info);
+  border-color: var(--color-accent-500);
   color: var(--color-text-primary);
 }
 
+.info .icon {
+  color: var(--color-accent-500);
+}
+
 .tip {
-  background: color-mix(in srgb, var(--color-success) 8%, transparent);
+  background: color-mix(in srgb, var(--color-success) 10%, var(--color-bg-secondary));
   border-color: var(--color-success);
   color: var(--color-text-primary);
 }
 
+.tip .icon {
+  color: var(--color-success);
+}
+
 .warning {
-  background: color-mix(in srgb, var(--color-warning) 8%, transparent);
+  background: color-mix(in srgb, var(--color-warning) 10%, var(--color-bg-secondary));
   border-color: var(--color-warning);
   color: var(--color-text-primary);
 }
 
+.warning .icon {
+  color: var(--color-warning);
+}
+
 .error {
-  background: color-mix(in srgb, var(--color-error) 8%, transparent);
+  background: color-mix(in srgb, var(--color-error) 10%, var(--color-bg-secondary));
   border-color: var(--color-error);
   color: var(--color-text-primary);
+}
+
+.error .icon {
+  color: var(--color-error);
 }

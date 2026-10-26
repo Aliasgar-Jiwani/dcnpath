@@ -24,8 +24,7 @@
   }
 }
 
-.card::before {
-  content: '';
+.accentBar {
   position: absolute;
   top: 0;
   left: 0;
@@ -38,9 +37,10 @@
 .card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--color-border-strong);
 }
 
-.card:hover::before {
+.card:hover .accentBar {
   height: 6px;
 }
 
@@ -57,9 +57,9 @@
 
 .unitNumber {
   font-size: var(--fs-xs);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-bottom: var(--sp-1);
 }
 
@@ -74,12 +74,13 @@
 .coBadge {
   display: inline-flex;
   align-items: center;
-  padding: var(--sp-1) var(--sp-3);
+  padding: 2px 10px;
   font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   border-radius: var(--radius-full);
   background: var(--color-bg-tertiary);
   color: var(--color-text-secondary);
+  border: 1px solid var(--color-border);
 }
 
 .cardObjectives {
@@ -94,12 +95,14 @@
   display: flex;
   align-items: baseline;
   gap: var(--sp-2);
+  line-height: var(--lh-normal);
 }
 
-.objective::before {
-  content: '→';
-  flex-shrink: 0;
+.objectiveBullet {
   color: var(--color-text-tertiary);
+  font-size: 14px;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
 .cardFooter {
@@ -119,9 +122,9 @@
 .continueBtn {
   display: inline-flex;
   align-items: center;
-  gap: var(--sp-2);
-  padding: var(--sp-2) var(--sp-4);
-  font-size: var(--fs-sm);
+  gap: var(--sp-1);
+  padding: 6px 14px;
+  font-size: var(--fs-xs);
   font-weight: var(--fw-semibold);
   color: white;
   border-radius: var(--radius-md);
@@ -130,6 +133,6 @@
 }
 
 .continueBtn:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: translateX(2px);
 }

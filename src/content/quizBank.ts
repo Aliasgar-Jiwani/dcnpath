@@ -1843,13 +1843,13 @@ export function calculateMastery(score: number, total: number) {
   let isMastered = false;
 
   if (percentage === 100) {
-    label = 'Outstanding Mastery! 🏆';
+    label = 'Outstanding Mastery';
     isMastered = true;
   } else if (percentage >= 66) {
-    label = 'Mastery Achieved ⭐';
+    label = 'Mastery Achieved';
     isMastered = true;
   } else if (percentage > 0) {
-    label = 'In Progress ✍️';
+    label = 'In Progress';
     isMastered = false;
   }
 

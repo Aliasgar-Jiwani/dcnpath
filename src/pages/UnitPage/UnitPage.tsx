@@ -28,6 +28,103 @@ const unitColors: Record<number, string> = {
   5: 'var(--color-unit-5)',
 };
 
+/** Crisp Lucide-style SVG icons for headers, buttons, and badges */
+function IconBook({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+    </svg>
+  );
+}
+
+function IconSplit({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <line x1="12" y1="3" x2="12" y2="21" />
+    </svg>
+  );
+}
+
+function IconSim({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 21v-7" />
+      <path d="M4 10V3" />
+      <path d="M12 21v-9" />
+      <path d="M12 8V3" />
+      <path d="M20 21v-5" />
+      <path d="M20 12V3" />
+      <path d="M1 14h6" />
+      <path d="M9 8h6" />
+      <path d="M17 16h6" />
+    </svg>
+  );
+}
+
+function IconFormula({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 4h16v4" />
+      <path d="M4 20h16v-4" />
+      <line x1="4" y1="4" x2="14" y2="12" />
+      <line x1="14" y1="12" x2="4" y2="20" />
+    </svg>
+  );
+}
+
+function IconQuiz({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+      <line x1="12" y1="17" x2="12.01" y2="17" />
+    </svg>
+  );
+}
+
+function IconZap({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+    </svg>
+  );
+}
+
+function IconSparkles({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+    </svg>
+  );
+}
+
+function IconCheck({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function IconAward({ size = 14 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="8" r="7" />
+      <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+    </svg>
+  );
+}
+
+function IconStar({ size = 12 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" stroke="none" aria-hidden="true">
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+    </svg>
+  );
+}
+
 /** Simple markdown-like body renderer */
 function renderFormattedBody(body: string) {
   const paragraphs = body.split(/\n\n+/);
@@ -250,7 +347,8 @@ export function UnitPage() {
 
         {activeTopic?.textbookRef && (
           <span className={styles.textbookRef}>
-            📖 {activeTopic.textbookRef}
+            <IconBook size={12} />
+            <span>{activeTopic.textbookRef}</span>
           </span>
         )}
       </nav>
@@ -288,7 +386,21 @@ export function UnitPage() {
             onClick={() => setShowObjectives((v) => !v)}
             aria-expanded={showObjectives}
           >
-            <span>{showObjectives ? 'Hide Syllabus Objectives ▲' : 'View Course Objectives (CO) ▼'}</span>
+            <span>{showObjectives ? 'Hide Course Objectives' : 'View Course Objectives (CO)'}</span>
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              style={{ transform: showObjectives ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}
+              aria-hidden="true"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </button>
         </div>
 
@@ -354,6 +466,8 @@ export function UnitPage() {
               const isActive = activeTopic?.id === t.id;
               const done = up.completedTopicIds.includes(t.id);
               const indexStr = String(idx + 1).padStart(2, '0');
+              const isMastered = up.topicScores?.[t.id]?.passed;
+
               return (
                 <Link
                   key={t.id}
@@ -369,10 +483,16 @@ export function UnitPage() {
                   <span className={styles.tabIndexBadge}>{indexStr}</span>
                   <span>{t.title}</span>
                   {t.sim && <span className={styles.simIndicatorBadge}>SIM</span>}
-                  {up.topicScores?.[t.id]?.passed && (
-                    <span className={styles.quizIndicatorBadge} title="Topic Quiz Mastered">⭐</span>
+                  {isMastered && (
+                    <span className={styles.quizIndicatorBadge} title="Topic Quiz Mastered">
+                      <IconStar size={11} />
+                    </span>
                   )}
-                  {done && <span className={styles.checkMark}>✓</span>}
+                  {done && (
+                    <span className={styles.checkMark}>
+                      <IconCheck size={12} />
+                    </span>
+                  )}
                 </Link>
               );
             })}
@@ -423,7 +543,8 @@ export function UnitPage() {
             <div className={styles.topicMetaRow}>
               {activeTopic.sim && (
                 <span className={styles.simAvailableTag}>
-                  ⚡ Interactive Simulation Available
+                  <IconZap size={12} />
+                  <span>Interactive Simulator Available</span>
                 </span>
               )}
             </div>
@@ -445,7 +566,8 @@ export function UnitPage() {
                     onClick={() => setViewMode('split')}
                     title="Side-by-side simulator and study notes"
                   >
-                    <span>🔀 Split View</span>
+                    <IconSplit size={14} />
+                    <span>Split View</span>
                   </button>
                   <button
                     type="button"
@@ -455,7 +577,8 @@ export function UnitPage() {
                     onClick={() => setViewMode('simulator')}
                     title="Full-focus simulator workbench"
                   >
-                    <span>🔬 Simulator</span>
+                    <IconSim size={14} />
+                    <span>Simulator</span>
                   </button>
                   <button
                     type="button"
@@ -465,7 +588,8 @@ export function UnitPage() {
                     onClick={() => setViewMode('theory')}
                     title="Detailed theory & textbook concepts"
                   >
-                    <span>📖 Theory</span>
+                    <IconBook size={14} />
+                    <span>Theory</span>
                   </button>
                 </>
               ) : (
@@ -477,7 +601,8 @@ export function UnitPage() {
                   onClick={() => setViewMode('theory')}
                   title="Detailed theory & textbook concepts"
                 >
-                  <span>📖 Theory</span>
+                  <IconBook size={14} />
+                  <span>Theory</span>
                 </button>
               )}
 
@@ -489,7 +614,8 @@ export function UnitPage() {
                 onClick={() => setViewMode('formulas')}
                 title="Formulas & essential takeaways"
               >
-                <span>⚡ Formulas</span>
+                <IconFormula size={14} />
+                <span>Formulas</span>
               </button>
 
               <button
@@ -500,10 +626,11 @@ export function UnitPage() {
                 onClick={() => setViewMode('quiz')}
                 title="Topic knowledge check quiz"
               >
+                <IconQuiz size={14} />
                 <span>
-                  🧠 Quiz
+                  Quiz
                   {up.topicScores?.[activeTopic.id]?.passed
-                    ? ` ⭐ (${up.topicScores[activeTopic.id]?.score}/${up.topicScores[activeTopic.id]?.total})`
+                    ? ` (${up.topicScores[activeTopic.id]?.score}/${up.topicScores[activeTopic.id]?.total})`
                     : ''}
                 </span>
               </button>
@@ -515,7 +642,17 @@ export function UnitPage() {
               onClick={toggleComplete}
               aria-label={isCompleted ? 'Mark topic as incomplete' : 'Mark topic as complete'}
             >
-              <span>{isCompleted ? '✓ Completed' : '○ Mark Complete'}</span>
+              {isCompleted ? (
+                <>
+                  <IconCheck size={14} />
+                  <span>Completed</span>
+                </>
+              ) : (
+                <>
+                  <span className={styles.emptyCircle} />
+                  <span>Mark Complete</span>
+                </>
+              )}
             </button>
           </div>
         </header>
@@ -558,7 +695,10 @@ export function UnitPage() {
                       {activeTopic.formulas && activeTopic.formulas.length > 0 && (
                         <div className={styles.card}>
                           <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>📐 Key Formulas</h3>
+                            <h3 className={styles.cardTitle}>
+                              <IconFormula size={16} />
+                              <span>Key Formulas</span>
+                            </h3>
                           </div>
                           <div className={styles.formulasGrid}>
                             {activeTopic.formulas.map((expr, i) => (
@@ -572,7 +712,10 @@ export function UnitPage() {
                       {activeTopic.keyPoints && activeTopic.keyPoints.length > 0 && (
                         <div className={styles.card}>
                           <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>✦ Key Takeaways</h3>
+                            <h3 className={styles.cardTitle}>
+                              <IconSparkles size={16} />
+                              <span>Key Takeaways</span>
+                            </h3>
                           </div>
                           <ul className={styles.keyPointsList}>
                             {activeTopic.keyPoints.map((point, i) => (
@@ -587,13 +730,19 @@ export function UnitPage() {
                       {/* Textbook Reading Link/Drawer */}
                       <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                          <h3 className={styles.cardTitle}>📖 Textbook Theory</h3>
+                          <h3 className={styles.cardTitle}>
+                            <IconBook size={16} />
+                            <span>Textbook Theory</span>
+                          </h3>
                           <button
                             type="button"
                             className={styles.objectivesToggleBtn}
                             onClick={() => setViewMode('theory')}
                           >
-                            Read Full Text →
+                            <span>Read Full Text</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <polyline points="9 18 15 12 9 6" />
+                            </svg>
                           </button>
                         </div>
                         <div className={styles.topicBody}>
@@ -643,10 +792,13 @@ export function UnitPage() {
                     <aside className={styles.splitStudyPane}>
                       <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                          <h3 className={styles.cardTitle}>⚡ Hands-On Lab</h3>
+                          <h3 className={styles.cardTitle}>
+                            <IconZap size={16} />
+                            <span>Interactive Lab</span>
+                          </h3>
                         </div>
                         <p style={{ margin: 0, fontSize: 'var(--fs-xs)', color: 'var(--color-text-secondary)', lineHeight: 'var(--lh-relaxed)' }}>
-                          This concept features an interactive SVG simulator to test and manipulate parameters in real time.
+                          This concept features an interactive visual simulation to explore parameters and signal behaviors in real time.
                         </p>
                         <button
                           type="button"
@@ -657,18 +809,22 @@ export function UnitPage() {
                             borderColor: 'var(--color-accent-500)',
                             width: '100%',
                             justifyContent: 'center',
-                            marginTop: 'var(--sp-1)',
+                            marginTop: 'var(--sp-2)',
                           }}
                           onClick={() => setViewMode('split')}
                         >
-                          Launch Simulator Workbench 🚀
+                          <IconSim size={14} />
+                          <span>Launch Simulator Workbench</span>
                         </button>
                       </div>
 
                       {activeTopic.formulas && activeTopic.formulas.length > 0 && (
                         <div className={styles.card}>
                           <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>📐 Key Formulas</h3>
+                            <h3 className={styles.cardTitle}>
+                              <IconFormula size={16} />
+                              <span>Key Formulas</span>
+                            </h3>
                           </div>
                           <div className={styles.formulasGrid}>
                             {activeTopic.formulas.map((expr, i) => (
@@ -681,7 +837,10 @@ export function UnitPage() {
                       {activeTopic.keyPoints && activeTopic.keyPoints.length > 0 && (
                         <div className={styles.card}>
                           <div className={styles.cardHeader}>
-                            <h3 className={styles.cardTitle}>✦ Key Takeaways</h3>
+                            <h3 className={styles.cardTitle}>
+                              <IconSparkles size={16} />
+                              <span>Key Takeaways</span>
+                            </h3>
                           </div>
                           <ul className={styles.keyPointsList}>
                             {activeTopic.keyPoints.map((point, i) => (
@@ -711,7 +870,10 @@ export function UnitPage() {
                   <div className={styles.splitLayout}>
                     <div className={styles.card}>
                       <div className={styles.cardHeader}>
-                        <h3 className={styles.cardTitle}>📐 Formulations &amp; Derivations</h3>
+                        <h3 className={styles.cardTitle}>
+                          <IconFormula size={16} />
+                          <span>Formulations &amp; Derivations</span>
+                        </h3>
                       </div>
                       {activeTopic.formulas && activeTopic.formulas.length > 0 ? (
                         <div className={styles.formulasGrid}>
@@ -728,7 +890,10 @@ export function UnitPage() {
 
                     <div className={styles.card}>
                       <div className={styles.cardHeader}>
-                        <h3 className={styles.cardTitle}>✦ Essential Takeaways</h3>
+                        <h3 className={styles.cardTitle}>
+                          <IconSparkles size={16} />
+                          <span>Essential Takeaways</span>
+                        </h3>
                       </div>
                       <ul className={styles.keyPointsList}>
                         {activeTopic.keyPoints.map((point, i) => (
@@ -757,7 +922,10 @@ export function UnitPage() {
                 <div className={styles.splitLayout}>
                   <div className={styles.card}>
                     <div className={styles.cardHeader}>
-                      <h3 className={styles.cardTitle}>📐 Formulations &amp; Derivations</h3>
+                      <h3 className={styles.cardTitle}>
+                        <IconFormula size={16} />
+                        <span>Formulations &amp; Derivations</span>
+                      </h3>
                     </div>
                     {activeTopic.formulas && activeTopic.formulas.length > 0 ? (
                       <div className={styles.formulasGrid}>
@@ -774,7 +942,10 @@ export function UnitPage() {
 
                   <div className={styles.card}>
                     <div className={styles.cardHeader}>
-                      <h3 className={styles.cardTitle}>✦ Essential Takeaways</h3>
+                      <h3 className={styles.cardTitle}>
+                        <IconSparkles size={16} />
+                        <span>Essential Takeaways</span>
+                      </h3>
                     </div>
                     <ul className={styles.keyPointsList}>
                       {activeTopic.keyPoints.map((point, i) => (
@@ -804,7 +975,10 @@ export function UnitPage() {
                     {activeTopic.formulas && activeTopic.formulas.length > 0 && (
                       <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                          <h3 className={styles.cardTitle}>📐 Key Formulas</h3>
+                          <h3 className={styles.cardTitle}>
+                            <IconFormula size={16} />
+                            <span>Key Formulas</span>
+                          </h3>
                         </div>
                         <div className={styles.formulasGrid}>
                           {activeTopic.formulas.map((expr, i) => (
@@ -817,7 +991,10 @@ export function UnitPage() {
                     {activeTopic.keyPoints && activeTopic.keyPoints.length > 0 && (
                       <div className={styles.card}>
                         <div className={styles.cardHeader}>
-                          <h3 className={styles.cardTitle}>✦ Key Takeaways</h3>
+                          <h3 className={styles.cardTitle}>
+                            <IconSparkles size={16} />
+                            <span>Key Takeaways</span>
+                          </h3>
                         </div>
                         <ul className={styles.keyPointsList}>
                           {activeTopic.keyPoints.map((point, i) => (
@@ -849,7 +1026,12 @@ export function UnitPage() {
                 to={`/unit/${currentUnit.id}/topic/${prevTopic.id}`}
                 className={styles.navCard}
               >
-                <span className={styles.navDirection}>← Previous Topic</span>
+                <span className={styles.navDirection}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="15 18 9 12 15 6" />
+                  </svg>
+                  <span>Previous Topic</span>
+                </span>
                 <span className={styles.navTitle}>{prevTopic.title}</span>
               </Link>
             ) : (
@@ -861,7 +1043,12 @@ export function UnitPage() {
                 to={`/unit/${currentUnit.id}/topic/${nextTopic.id}`}
                 className={`${styles.navCard} ${styles.navCardNext}`}
               >
-                <span className={styles.navDirection}>Next Topic →</span>
+                <span className={styles.navDirection}>
+                  <span>Next Topic</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </span>
                 <span className={styles.navTitle}>{nextTopic.title}</span>
               </Link>
             ) : (
@@ -869,7 +1056,10 @@ export function UnitPage() {
                 to="/"
                 className={`${styles.navCard} ${styles.navCardNext}`}
               >
-                <span className={styles.navDirection}>Unit Completed 🎉</span>
+                <span className={styles.navDirection}>
+                  <IconAward size={14} />
+                  <span>Unit Completed</span>
+                </span>
                 <span className={styles.navTitle}>Return to Course Home</span>
               </Link>
             )}
