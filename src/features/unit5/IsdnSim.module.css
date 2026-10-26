@@ -1,0 +1,368 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--sp-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--sp-3);
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cardTitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.badge {
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--color-accent-400);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.controlGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.controlItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  flex: 1 1 240px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.controlItemWide {
+  flex: 1.5 1 320px;
+  min-width: 0;
+}
+
+.label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.segmentedControl {
+  display: flex;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+  border: 1px solid var(--color-border);
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 38px;
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.segmentedControl::-webkit-scrollbar {
+  display: none;
+}
+
+.segmentBtn {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 6px var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-sm);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.segmentBtn:hover {
+  color: var(--color-text-primary);
+}
+
+.segmentActive {
+  background: var(--color-accent-500);
+  color: #fff !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Channels Visualizer Grid ── */
+.channelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--sp-3);
+}
+
+.channelCard {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  transition: all 0.2s;
+}
+
+.channelActive {
+  border-color: #10b981;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+}
+
+.channelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.channelName {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  color: var(--color-text-primary);
+}
+
+.channelRate {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent-400);
+}
+
+.channelStateBadge {
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.stateIdle {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--color-text-tertiary);
+}
+
+.stateVoice {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+
+.stateData {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.stateSignaling {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.channelActionRow {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.btnSmall {
+  flex: 1;
+  padding: 4px;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btnSmall:hover {
+  background: var(--color-accent-500);
+  color: #fff;
+  border-color: var(--color-accent-500);
+}
+
+/* ── ISDN Reference Points Architecture Schematic ── */
+.architectureContainer {
+  background: #090e18;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  overflow-x: auto;
+}
+
+.devicesTrack {
+  display: flex;
+  align-items: center;
+  min-width: 600px;
+  justify-content: space-between;
+  padding: var(--sp-2) 0;
+}
+
+.deviceNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-2) var(--sp-3);
+  min-width: 80px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.deviceType {
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-xs);
+  color: var(--color-text-primary);
+}
+
+.deviceDesc {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+}
+
+.referencePointBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0 4px;
+  transition: transform 0.2s;
+}
+
+.referencePointBtn:hover {
+  transform: scale(1.1);
+}
+
+.refPointCircle {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent-500);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-bold);
+  font-size: 11px;
+  box-shadow: 0 0 8px rgba(99, 102, 241, 0.4);
+}
+
+.refPointActive {
+  background: #10b981 !important;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.6) !important;
+}
+
+.refPointLine {
+  width: 32px;
+  height: 2px;
+  background: #4b5563;
+}
+
+.refInfoBox {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ── Stats ── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: var(--sp-3);
+}
+
+.statBox {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabel {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.statValue {
+  font-size: var(--fs-lg);
+  font-weight: var(--fw-bold);
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}
+
+.logBox {
+  max-height: 120px;
+  overflow-y: auto;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: #090d16;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-2) var(--sp-3);
+  color: var(--color-text-secondary);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}

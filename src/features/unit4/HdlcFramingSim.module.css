@@ -1,0 +1,297 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--sp-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--sp-3);
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cardTitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.badge {
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--color-accent-400);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.tabRow {
+  display: flex;
+  gap: var(--sp-2);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--sp-2);
+}
+
+.tabBtn {
+  padding: var(--sp-2) var(--sp-4);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabBtn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-bg-tertiary);
+}
+
+.activeTab {
+  background: var(--color-accent-500) !important;
+  color: #fff !important;
+}
+
+.inputRow {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.textInput {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-primary);
+  flex: 1;
+  min-width: 220px;
+}
+
+.textInput:focus {
+  outline: 2px solid var(--color-accent-500);
+  outline-offset: 1px;
+}
+
+.presetsRow {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.presetBtn {
+  font-size: var(--fs-xs);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.presetBtn:hover {
+  background: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+  border-color: var(--color-accent-500);
+}
+
+/* ── Frame Structure Visualizer ── */
+.frameContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  background: var(--color-bg-tertiary);
+  padding: var(--sp-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.frameSections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: stretch;
+}
+
+.frameField {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-secondary);
+  min-width: 75px;
+  text-align: center;
+}
+
+.flagField {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #f87171;
+}
+
+.addressField {
+  background: rgba(245, 158, 11, 0.15);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.controlField {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.4);
+  color: #c084fc;
+}
+
+.payloadField {
+  flex: 2;
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.4);
+  color: #60a5fa;
+  min-width: 140px;
+}
+
+.fcsField {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.4);
+  color: #34d399;
+}
+
+.fieldName {
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+}
+
+.fieldBits {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  word-break: break-all;
+  margin-top: 2px;
+}
+
+.fieldSize {
+  font-size: 9px;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+/* ── Bit Stream Display ── */
+.bitStreamCard {
+  background: #0b0f19;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.bitRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  align-items: center;
+}
+
+.bitToken {
+  width: 26px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+  font-weight: var(--fw-semibold);
+  transition: all 0.2s;
+}
+
+.stuffedBit {
+  background: #10b981 !important;
+  color: #fff !important;
+  border-color: #059669 !important;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+  position: relative;
+  font-weight: var(--fw-bold);
+}
+
+.consecutiveOneBit {
+  background: rgba(245, 158, 11, 0.25);
+  border-color: rgba(245, 158, 11, 0.6);
+  color: #fbbf24;
+}
+
+.removedBit {
+  background: rgba(239, 68, 68, 0.2) !important;
+  border-color: #ef4444 !important;
+  color: #ef4444 !important;
+  text-decoration: line-through;
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--sp-3);
+}
+
+.statItem {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statItem span:first-child {
+  font-size: 11px;
+  color: var(--color-text-tertiary);
+}
+
+.statItem span:last-child {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+}

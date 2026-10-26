@@ -1,0 +1,295 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--sp-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--sp-3);
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cardTitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.badge {
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-weight: var(--fw-semibold);
+  background: rgba(99, 102, 241, 0.15);
+  color: var(--color-accent-400);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.controlGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.controlItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  flex: 1 1 220px;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.valueBadge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--fw-bold);
+  color: var(--color-accent-400);
+  background: rgba(99, 102, 241, 0.12);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.sliderContainer {
+  display: flex;
+  align-items: center;
+  min-height: 38px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.sliderInput {
+  width: 100%;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-tertiary);
+  accent-color: var(--color-accent-500);
+  cursor: pointer;
+  outline: none;
+}
+
+/* ── Comparison Bars ── */
+.comparisonGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  background: var(--color-bg-tertiary);
+  padding: var(--sp-4);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.techRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.techHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-primary);
+}
+
+.timeBadge {
+  font-family: var(--font-mono);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timelineBar {
+  display: flex;
+  height: 28px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #0b0f19;
+  border: 1px solid var(--color-border);
+  position: relative;
+}
+
+.barSegment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 4px;
+  transition: width 0.4s ease;
+}
+
+.segSetup {
+  background: #f59e0b;
+}
+
+.segTrans {
+  background: #3b82f6;
+}
+
+.segProp {
+  background: #8b5cf6;
+}
+
+.segStore {
+  background: #ec4899;
+}
+
+.segPipeline {
+  background: #10b981;
+}
+
+.legendRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  padding-top: var(--sp-2);
+  border-top: 1px dashed var(--color-border);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+/* ── Network Topology Graphic ── */
+.topologyCard {
+  background: #090e18;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.nodeBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  z-index: 2;
+}
+
+.nodeCircle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--color-bg-tertiary);
+  border: 2px solid var(--color-accent-500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-xs);
+  color: var(--color-text-primary);
+}
+
+.nodeLabel {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+}
+
+.linkLine {
+  flex: 1;
+  height: 3px;
+  background: #374151;
+  position: relative;
+  margin: 0 4px;
+}
+
+.pipeDedicated {
+  height: 8px;
+  background: #f59e0b;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+}
+
+/* ── Comparison Table ── */
+.tableContainer {
+  overflow-x: auto;
+}
+
+.compareTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-xs);
+  text-align: left;
+}
+
+.compareTable th,
+.compareTable td {
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.compareTable th {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  font-weight: var(--fw-semibold);
+}
+
+.winnerCell {
+  color: #10b981;
+  font-weight: var(--fw-bold);
+}

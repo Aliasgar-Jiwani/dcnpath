@@ -1,0 +1,224 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+/* ── Shared card style ── */
+.card {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  box-sizing: border-box;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--sp-4);
+    border-radius: var(--radius-lg);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: var(--sp-2);
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+}
+
+.cardTitle {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  color: var(--color-text-primary);
+}
+
+/* ── Spectrum visual ── */
+.spectrumBar {
+  position: relative;
+  height: 56px;
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.channelBlock {
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: var(--fw-bold);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
+}
+
+.guardBand {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  color: var(--color-text-tertiary);
+}
+
+/* ── TDM Frames ── */
+.frameRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-bottom: var(--sp-2);
+}
+
+.frameLabel {
+  min-width: 60px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-secondary);
+}
+
+.slot {
+  flex: 1;
+  min-width: 32px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  border: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+}
+
+.slotEmpty {
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-tertiary);
+  border-style: dashed;
+}
+
+.slotFilled {
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.framingBit {
+  width: 24px;
+  min-width: 24px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 9px;
+  font-weight: var(--fw-bold);
+  color: var(--color-text-tertiary);
+}
+
+/* ── Result box ── */
+.resultBox {
+  background: var(--color-bg-tertiary);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-4);
+  text-align: center;
+  border: 1px solid var(--color-border);
+}
+
+.resultVal {
+  font-size: clamp(1.25rem, 3.5vw, 1.875rem);
+  font-weight: var(--fw-extrabold);
+  color: var(--color-accent-500);
+  font-family: var(--font-mono);
+  line-height: 1.1;
+}
+
+.resultLabel {
+  font-size: var(--fs-xs);
+  color: var(--color-text-tertiary);
+  margin-top: var(--sp-1);
+}
+
+/* ── Slider rows ── */
+.sliderRow {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  width: 100%;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  color: var(--color-text-secondary);
+}
+
+.sliderInput {
+  accent-color: var(--color-accent-500);
+  cursor: pointer;
+  width: 100%;
+  height: 8px;
+}
+
+/* ── Two-column grid ── */
+.dualGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-4);
+  width: 100%;
+}
+
+@media (min-width: 900px) {
+  .dualGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ── Mode buttons ── */
+.modeBtns {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.modeBtn {
+  padding: var(--sp-2) var(--sp-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.modeBtn:hover {
+  border-color: var(--color-accent-500);
+  color: var(--color-accent-500);
+}
+
+.modeBtnActive {
+  background: var(--color-accent-500);
+  color: #fff;
+  border-color: var(--color-accent-500);
+}
